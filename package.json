@@ -1,0 +1,17 @@
+{
+  "name": "braves-ticket-scanner",
+  "private": true,
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "build": "pnpm --filter @ticket-agent/contracts build && pnpm --filter @ticket-agent/extension build && pnpm --filter @ticket-agent/web build && pnpm --filter @ticket-agent/worker build",
+    "dev": "pnpm --filter @ticket-agent/web dev",
+    "dev:extension": "pnpm --filter @ticket-agent/extension dev",
+    "worker": "pnpm --filter @ticket-agent/worker start",
+    "test": "pnpm --filter @ticket-agent/contracts build && pnpm -r test",
+    "typecheck": "pnpm --filter @ticket-agent/contracts build && pnpm -r typecheck",
+    "lint": "pnpm --filter @ticket-agent/web lint"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

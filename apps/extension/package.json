@@ -1,0 +1,27 @@
+{
+  "name": "@ticket-agent/extension",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && esbuild src/content.ts --bundle --format=iife --platform=browser --target=chrome120 --outfile=dist/content.js && esbuild src/page-capture.ts --bundle --format=iife --platform=browser --target=chrome120 --outfile=dist/page-capture.js",
+    "test": "vitest run --config vitest.config.ts && tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@ticket-agent/contracts": "workspace:*",
+    "lucide-react": "0.468.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.1.31",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.1.1",
+    "esbuild": "0.25.12",
+    "vite": "7.2.4",
+    "vitest": "3.2.4"
+  }
+}

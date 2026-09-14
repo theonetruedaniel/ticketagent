@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Braves Ticket Scanner",
+  "version": "0.2.1",
+  "description": "Private Braves deal monitor for SeatGeek, StubHub, TickPick, and GameTime.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://seatgeek.com/*",
+    "https://www.stubhub.com/*",
+    "https://www.tickpick.com/*",
+    "https://gametime.co/*",
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://seatgeek.com/*",
+        "https://www.stubhub.com/*"
+      ],
+      "js": [
+        "page-capture.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://seatgeek.com/*",
+        "https://www.stubhub.com/*",
+        "https://www.tickpick.com/*",
+        "https://gametime.co/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Braves Ticket Scanner"
+  }
+}
