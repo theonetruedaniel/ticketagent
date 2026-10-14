@@ -42,3 +42,7 @@ Review and configure migrations and scheduling definitions before applying them 
 I defined the workflow and operational requirements, guided development with AI assistance, and reviewed parsing, freshness and delivery behavior. This repository presents implementation and testing work alongside the prototype's unresolved operational limits.
 
 [Portfolio](https://theonetruedaniel.github.io/) · [GitHub](https://github.com/theonetruedaniel)
+
+## License
+
+Original software and accompanying documentation in this repository are licensed under the [MIT License](LICENSE), copyright (c) 2026 Daniel Abrams. Third-party dependencies and any third-party content retain their respective licenses and rights.
