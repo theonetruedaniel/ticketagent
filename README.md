@@ -1,5 +1,7 @@
 # TicketAgent / Braves Ticket Ops
 
+[![Workspace checks](https://github.com/theonetruedaniel/ticketagent/actions/workflows/ci.yml/badge.svg)](https://github.com/theonetruedaniel/ticketagent/actions/workflows/ci.yml)
+
 A ticket-inventory and alerting prototype by **Daniel Abrams**, developed with AI assistance. It combines a Next.js dashboard, Chrome extension, shared marketplace parsers and a Crawlee collection worker.
 
 **Status: public source snapshot, prototype.** This edition defaults to a local dashboard. Publishing the source does not resume the private monitoring service. Live coverage, delivery reliability and a fresh end-to-end deployment have not been verified for this edition.
@@ -23,6 +25,7 @@ Requires Node.js 22+ and pnpm 10.12.1.
 ```sh
 pnpm install --frozen-lockfile
 pnpm test
+pnpm typecheck
 pnpm build
 pnpm dev
 ```
@@ -30,6 +33,12 @@ pnpm dev
 Open `http://localhost:3000`. Without Supabase variables, the dashboard uses labeled demo inventory. Review `.env.example` for optional services; values are placeholders. Keep real credentials out of Git. The package uses `private: true` to prevent accidental npm publication; this GitHub repository is public.
 
 Build the extension with `pnpm --filter @ticket-agent/extension build`, then load `apps/extension/dist` as an unpacked Chrome extension. This edition points to localhost. Configure a separate deployment and its host permissions explicitly. Collectors and delivery services are unnecessary for inspecting the source.
+
+## Automated validation
+
+GitHub Actions installs the frozen lockfile using the pinned pnpm version in `package.json`, then runs all workspace tests, type checks and builds on Node.js 22. This covers contracts, extension logic, dashboard utilities and worker logic. The dashboard builds without service credentials using its demo defaults.
+
+CI does not start the collection worker, install browser runtimes, apply database migrations or send notifications. Passing tests and builds does not establish live provider coverage or end-to-end delivery. TypeScript incremental build caches are ignored by Git.
 
 ## Publication scope
 
