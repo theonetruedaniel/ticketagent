@@ -10,6 +10,7 @@ apps/worker/storage/
 .env.local
 .env.*.local
 *.log
+*.tsbuildinfo
 apps/extension/.output/
 .DS_Store
 /.qa-python/
